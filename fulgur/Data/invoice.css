@@ -1,0 +1,597 @@
+/* ================================================================
+   invoice.css — Styles for invoice.html.jinja2
+   Aesthetic: refined editorial / luxury-minimal
+   Fonts: DM Serif Display (headings) + DM Mono (data/numbers)
+   ================================================================ */
+
+/* ── CSS Variables ────────────────────────────────────────────── */
+:root {
+  --ink:         #1a1a1a;
+  --ink-mid:     #4a4a4a;
+  --ink-muted:   #8a8a8a;
+  --ink-faint:   #d0ccc6;
+
+  --cream:       #faf8f5;
+  --cream-dark:  #f0ece5;
+  --accent:      #b5460f;       /* warm terracotta accent          */
+  --accent-soft: #f5ede8;
+  --green:       #2d6a4f;
+  --green-soft:  #e8f4ef;
+  --red:         #9b2335;
+  --red-soft:    #faeaec;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  --radius:       4px;
+  --page-width:   820px;
+
+  --space-xs:     4px;
+  --space-sm:     8px;
+  --space-md:     16px;
+  --space-lg:     28px;
+  --space-xl:     48px;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  background: var(--cream-dark);
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: var(--font-mono);
+  line-height: 1.6;
+  background: var(--cream-dark);
+  padding: 40px 20px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Page Shell ───────────────────────────────────────────────── */
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  background: var(--cream);
+  border: 1px solid var(--ink-faint);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+.inv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.inv-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.inv-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.inv-logo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius);
+}
+
+.inv-company-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* invoice meta block (top right) */
+.inv-meta {
+  text-align: right;
+  min-width: 220px;
+}
+
+.inv-meta-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.inv-meta-label {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.inv-meta-value {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
+.inv-number {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.inv-divider {
+  margin: var(--space-lg) 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--accent) 40%, var(--ink-faint) 100%);
+}
+
+/* ── Parties ──────────────────────────────────────────────────── */
+.inv-parties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.inv-party-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.inv-party-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: var(--space-xs);
+}
+
+.inv-party-detail {
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ── References / PO Bar ──────────────────────────────────────── */
+.inv-references {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background: var(--cream-dark);
+  border: 1px solid var(--ink-faint);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.inv-ref-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.inv-ref-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+
+.inv-ref-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ── Line Items Table ─────────────────────────────────────────── */
+.inv-items-section {
+  margin-bottom: var(--space-xl);
+}
+
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.inv-table thead tr {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.inv-table thead th {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+.inv-table thead th.col-qty,
+.inv-table thead th.col-price,
+.inv-table thead th.col-tax,
+.inv-table thead th.col-total {
+  text-align: right;
+}
+
+.inv-table tbody tr {
+  border-bottom: 1px solid var(--ink-faint);
+  transition: background 0.1s;
+}
+
+.inv-table tbody tr.row-even {
+  background: var(--cream-dark);
+}
+
+.inv-table tbody tr:last-child {
+  border-bottom: 2px solid var(--ink);
+}
+
+.inv-table tbody td {
+  padding: var(--space-md);
+  vertical-align: top;
+  color: var(--ink-mid);
+}
+
+.inv-table tbody td.col-qty,
+.inv-table tbody td.col-price,
+.inv-table tbody td.col-tax,
+.inv-table tbody td.col-total {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.inv-table tbody td.col-total {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.col-num  { width: 32px; color: var(--ink-muted) !important; }
+.col-desc { width: auto; }
+.col-qty  { width: 60px; }
+.col-unit { width: 60px; }
+.col-price{ width: 100px; }
+.col-tax  { width: 70px; }
+.col-total{ width: 110px; }
+
+.item-name {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.item-desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.item-sku {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  background: var(--cream-dark);
+  border: 1px solid var(--ink-faint);
+  border-radius: 2px;
+  padding: 1px 5px;
+  letter-spacing: 0.05em;
+}
+
+.no-items {
+  text-align: center;
+  padding: var(--space-xl) !important;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* ── Totals + Notes ───────────────────────────────────────────── */
+.inv-totals-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* Notes */
+.inv-notes {
+  flex: 1;
+  max-width: 340px;
+}
+
+.inv-notes-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.inv-notes-body {
+  font-size: 0.82rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  border-left: 2px solid var(--accent);
+  padding-left: var(--space-md);
+}
+
+/* Totals column */
+.inv-totals {
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.inv-totals-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--ink-faint);
+  font-size: 0.83rem;
+}
+
+.inv-totals-row:last-child {
+  border-bottom: none;
+}
+
+.totals-label {
+  color: var(--ink-mid);
+}
+
+.totals-value {
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.totals-discount {
+  color: var(--green);
+}
+
+.totals-paid {
+  color: var(--green);
+}
+
+/* Grand Total row */
+.inv-totals-row--grand {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--ink);
+  border-radius: var(--radius);
+  border-bottom: none;
+}
+
+.inv-totals-row--grand .totals-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.totals-grand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--cream) !important;
+}
+
+/* Balance Due row */
+.inv-totals-row--balance {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  border-bottom: none;
+  margin-top: 6px;
+}
+
+.inv-totals-row--balance .totals-label {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.totals-balance {
+  color: var(--accent) !important;
+  font-weight: 700;
+}
+
+/* ── Badges ───────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: var(--space-sm);
+}
+
+.badge--paid      { background: var(--green-soft);   color: var(--green); }
+.badge--unpaid    { background: var(--accent-soft);  color: var(--accent); }
+.badge--draft     { background: var(--cream-dark);   color: var(--ink-muted); border: 1px solid var(--ink-faint); }
+.badge--overdue   { background: var(--red-soft);     color: var(--red); }
+.badge--partial   { background: #fff4db;             color: #7a5100; }
+.badge--cancelled { background: var(--cream-dark);   color: var(--ink-muted); text-decoration: line-through; }
+
+.overdue {
+  color: var(--red);
+}
+
+/* ── Payment Instructions ─────────────────────────────────────── */
+.inv-payment {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--cream-dark);
+  border: 1px solid var(--ink-faint);
+  border-radius: var(--radius);
+}
+
+.inv-payment-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-md);
+}
+
+.inv-payment-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-lg);
+  font-size: 0.82rem;
+}
+
+.pay-label {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.pay-value {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ── Terms ────────────────────────────────────────────────────── */
+.inv-terms {
+  margin-bottom: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--ink-faint);
+}
+
+.inv-terms-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.inv-terms-body {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.inv-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--ink-faint);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.inv-footer-sep {
+  color: var(--ink-faint);
+}
+
+/* ── Print Styles ─────────────────────────────────────────────── */
+@media print {
+  html, body {
+    background: white;
+    padding: 0;
+  }
+
+  .page {
+    box-shadow: none;
+    border: none;
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+
+  .page {
+    padding: var(--space-lg);
+  }
+
+  .inv-header {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .inv-meta {
+    text-align: left;
+    min-width: 0;
+  }
+
+  .inv-meta-row {
+    justify-content: flex-start;
+  }
+
+  .inv-parties {
+    grid-template-columns: 1fr;
+  }
+
+  .inv-totals-section {
+    flex-direction: column;
+  }
+
+  .inv-notes {
+    max-width: 100%;
+  }
+
+  .inv-totals {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .inv-table thead th.col-unit,
+  .inv-table tbody td.col-unit {
+    display: none;
+  }
+}
