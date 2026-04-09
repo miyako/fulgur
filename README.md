@@ -10,6 +10,10 @@ The component includes `3` executables:
 - macOS Apple Silicon/Intel, code signed and notarised
 - Windows Intel/ARM
 
+## Example
+
+https://miyako.github.io/fulgur/
+
 #### Template genereate by Claude
 
 https://claude.ai/share/c9d16499-5cbb-4fe1-88ee-59796543bd15
