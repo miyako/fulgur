@@ -5,16 +5,16 @@ kramdown:
   syntax_highlighter: rouge
 highlighter: rouge
 plugins_dir: _plugins
-baseurl: /text-splitter
+baseurl: /fulgur
 
-title: "text-splitter"
-description: "Tool to split text into semantic chunks"
+title: "fulgur"
+description: "Generate PDF from HTML"
 logo: "/assets/logo.png"   # optional
 show_downloads: true       # controls the download links in header
 github:
   is_user_page: true
   owner_url: "https://github.com/miyako"
-  repository_url: "https://github.com/miyako/text-splitter"
+  repository_url: "https://github.com/miyako/fulgur"
   is_project_page: false
 
 exclude:
@@ -23,3 +23,4 @@ exclude:
   - "LICENSE"
   - "README.md"
   - "Gemfile"
+  - "fulgur/*"
