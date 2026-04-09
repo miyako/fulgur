@@ -3,7 +3,7 @@
 [**Fulgur**](https://github.com/mitsuru/fulgur) is a modern, lightweight alternative to `wkhtmltopdf` written in Rust. 
 
 > [!NOTE]
-> the CLI is **not** a direct replacement for `wkhtmltopdf`. 
+> the CLI is **not** a direct replacement for `wkhtmltopdf`. It is designed primarily as a template engine (jinja) and strictly offline, meaning `href` are generally not allowed.
 
 The component includes `3` executables:
 
