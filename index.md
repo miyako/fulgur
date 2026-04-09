@@ -65,5 +65,5 @@ var $task : Object
 $fulgur.render($task; Formula(onResponse))
 ```
 
-<img width="1101" height="598" alt="example" src="/fulgur/assets/img/example.png" />
+<img width="550" height="auto" alt="example" src="/fulgur/assets/img/example.png" />
 
