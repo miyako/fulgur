@@ -1,0 +1,18 @@
+{
+  "name": "fulgur",
+  "description": "Generate PDF from HTML",
+  "author": [
+    "mitsuru",
+    "Keisuke Miyako <keisuke.miyako@4D.com>"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/miyako/fulgur",
+  "version": "21.1.0",
+  "tool": {
+    "platform": "macos",
+    "branch": "21.x",
+    "version": "21.0",
+    "build": "latest",
+    "arch": "arm"
+  }
+}
