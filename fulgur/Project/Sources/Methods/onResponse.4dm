@@ -4,4 +4,4 @@
 var $text : Text
 $text:=$worker.response
 
-//TRACE
+OPEN URL:C673($params.context.platformPath)

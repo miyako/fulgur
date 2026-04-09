@@ -1,0 +1,157 @@
+{
+  "seller": {
+    "name": "Meridian Studio LLC",
+    "logo_url": "logo.png",
+    "tax_id": "US-83-1294567",
+    "address_line1": "240 West 18th Street, Suite 5B",
+    "address_line2": "",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10011",
+    "country": "United States",
+    "email": "billing@meridianstudio.io",
+    "phone": "+1 (212) 555-0172",
+    "website": "www.meridianstudio.io"
+  },
+
+  "buyer": {
+    "name": "Apex Digital Solutions Inc.",
+    "contact_name": "Rachel Thornton",
+    "tax_id": "US-47-9023841",
+    "address_line1": "1400 Harbor Blvd, Floor 12",
+    "address_line2": "c/o Finance Department",
+    "city": "San Francisco",
+    "state": "CA",
+    "postal_code": "94105",
+    "country": "United States",
+    "email": "accounts.payable@apexdigital.com"
+  },
+
+  "invoice": {
+    "number": "INV-2026-0047",
+    "issue_date": "April 1, 2026",
+    "due_date": "April 30, 2026",
+    "is_overdue": false,
+    "status": "unpaid",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "po_number": "PO-ADS-20260312",
+    "reference": "CONTRACT-MRD-2025-11",
+    "project": "Apex Brand Redesign — Phase 2",
+    "ship_to": null,
+    "notes": "Payment is due within 30 days of the invoice date. Please reference invoice number INV-2026-0047 in your payment. Late payments are subject to a 1.5% monthly interest charge.",
+    "terms": "All work is delivered as-is upon final payment. Intellectual property rights transfer to the client only after payment in full. Disputes must be raised within 7 days of invoice receipt. Governing law: State of New York."
+  },
+
+  "items": [
+    {
+      "name": "UX Research & Discovery",
+      "description": "User interviews (8 sessions), competitive analysis, persona development, and synthesis report.",
+      "sku": "SVC-UXR-01",
+      "quantity": 1,
+      "unit": "project",
+      "unit_price": 4800.00,
+      "tax_rate": 0.0,
+      "line_total": 4800.00
+    },
+    {
+      "name": "Brand Identity Design",
+      "description": "Logo redesign (3 concepts + 2 revision rounds), color palette, typography system, brand guidelines PDF.",
+      "sku": "SVC-BRD-02",
+      "quantity": 1,
+      "unit": "project",
+      "unit_price": 7500.00,
+      "tax_rate": 0.0,
+      "line_total": 7500.00
+    },
+    {
+      "name": "UI Design — Web (Desktop + Mobile)",
+      "description": "High-fidelity Figma screens for 12 page templates, component library, responsive breakpoints.",
+      "sku": "SVC-UID-03",
+      "quantity": 1,
+      "unit": "project",
+      "unit_price": 9200.00,
+      "tax_rate": 0.0,
+      "line_total": 9200.00
+    },
+    {
+      "name": "Senior Designer",
+      "description": "Additional senior design hours for stakeholder presentation prep and asset exports.",
+      "sku": "SVC-HR-04",
+      "quantity": 14,
+      "unit": "hours",
+      "unit_price": 165.00,
+      "tax_rate": 0.0,
+      "line_total": 2310.00
+    },
+    {
+      "name": "Motion Design — Intro Animation",
+      "description": "15-second brand intro animation (After Effects source + MP4/WebM exports).",
+      "sku": "SVC-MOT-05",
+      "quantity": 1,
+      "unit": "deliverable",
+      "unit_price": 1950.00,
+      "tax_rate": 0.0,
+      "line_total": 1950.00
+    },
+    {
+      "name": "Stock Photography License",
+      "description": "Extended commercial license for 6 curated stock images (Unsplash+).",
+      "sku": "LIC-PHOTO-06",
+      "quantity": 6,
+      "unit": "images",
+      "unit_price": 49.00,
+      "tax_rate": 8.875,
+      "line_total": 294.00
+    },
+    {
+      "name": "Font License — Neue Haas Grotesk",
+      "description": "Desktop + web license (5 seats, 100k pageviews/mo) via Monotype.",
+      "sku": "LIC-FONT-07",
+      "quantity": 1,
+      "unit": "license",
+      "unit_price": 320.00,
+      "tax_rate": 8.875,
+      "line_total": 320.00
+    },
+    {
+      "name": "Rush Delivery Surcharge",
+      "description": "Expedited turnaround on final deliverables (5 business days vs. standard 15).",
+      "sku": "SVC-RUSH-08",
+      "quantity": 1,
+      "unit": "flat fee",
+      "unit_price": 750.00,
+      "tax_rate": 0.0,
+      "line_total": 750.00
+    }
+  ],
+
+  "totals": {
+    "subtotal": 27124.00,
+    "discount": 1000.00,
+    "discount_label": "Returning client discount",
+    "taxes": [
+      {
+        "name": "NY Sales Tax",
+        "rate": 8.875,
+        "amount": 54.22
+      }
+    ],
+    "shipping": 0.00,
+    "adjustment": 0.00,
+    "grand_total": 26178.22,
+    "amount_paid": 10000.00,
+    "balance_due": 16178.22
+  },
+
+  "payment": {
+    "bank_name": "Chase Bank",
+    "account_name": "Meridian Studio LLC",
+    "account_number": "••••••7842",
+    "routing_number": "021000021",
+    "swift": "CHASUS33",
+    "iban": "",
+    "paypal": "payments@meridianstudio.io",
+    "instructions": "ACH and wire transfers preferred. Please allow 1–2 business days for processing confirmation."
+  }
+}

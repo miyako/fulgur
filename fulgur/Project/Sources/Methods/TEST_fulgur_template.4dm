@@ -8,23 +8,35 @@ If (Count parameters:C259=0)
 	
 Else 
 	
+	var $css : 4D:C1709.File
+	$css:=File:C1566("/DATA/invoice.css")
+	
+	var $template : 4D:C1709.File
+	$template:=File:C1566("/DATA/invoice.html")
+	
 	var $fulgur : cs:C1710.fulgur
 	$fulgur:=cs:C1710.fulgur.new()
 	
+	var $data : 4D:C1709.File
+	$data:=File:C1566("/DATA/data.json")
+	
+	var $output : 4D:C1709.File
+	$output:=Folder:C1567(fk desktop folder:K87:19).file("invoice.pdf")
+	
 	var $task : Object
 	$task:={\
-		input: "<!DOCTYPE html>\n<html lang=\"en\">\n<body>\n<h1>Hello</h1>\n<img src=\"logo.png\" alt=\"Logo with border\" class=\"bordered\" style=\"width:40px;height:40px\">\n</body>\n</html>\n"; \
+		input: $template; \
 		title: "test"; \
 		font: []; \
-		css: [File:C1566("/DATA/style.css")]; \
+		css: [$css]; \
 		image: [{name: "logo.png"; file: File:C1566("/DATA/logo.png")}]; \
 		margin: "10 10 10 10"; \
-		landscape: False:C215; \
+		landscape: True:C214; \
 		size: "A4"; \
-		data: {}; \
-		output: Folder:C1567(fk desktop folder:K87:19).file("test.pdf")}
+		data: $data; \
+		output: $output; context: $output}
 	
-	$fulgur.render($task)
+	$fulgur.render($task; Formula:C1597(onResponse))
 	
 End if 
 

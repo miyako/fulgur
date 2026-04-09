@@ -161,25 +161,24 @@ Function render($option : Variant; $formula : 4D:C1709.Function) : Collection
 		
 		Case of 
 			: (Value type:C1509($option.data)=Is object:K8:27) && (OB Instance of:C1731($option.data; 4D:C1709.File)) && ($option.data.exists)
-				$command+="--data "
+				$command+=" --data "
 				$command+=This:C1470.fulgur.escape(This:C1470.fulgur.expand($option.data).path)
 			: ((Value type:C1509($option.data)=Is object:K8:27) || (Value type:C1509($option.data)=Is BLOB:K8:12)) && (Not:C34($stdIn))
-				$command+="--data - "
+				$command+=" --data - "
 				$in:=$option.data
 			: (Value type:C1509($option.data)=Is text:K8:3)
-				$command+="--data  "
+				$command+=" --data "
 				$command+=This:C1470.fulgur.escape($option.data)
 		End case 
 		
 		Case of 
 			: (Value type:C1509($option.input)=Is object:K8:27) && (OB Instance of:C1731($option.input; 4D:C1709.File)) && ($option.input.exists)
-				$command+=This:C1470.fulgur.escape(This:C1470.fulgur.expand($option.file).path)
+				$command+=" "
+				$command+=This:C1470.fulgur.escape(This:C1470.fulgur.expand($option.input).path)
 			: ($stdIn)
 				$command+=" --stdin "
 				$in:=$option.input
 		End case 
-		
-		//SET TEXT TO PASTEBOARD($command)
 		
 		var $worker : 4D:C1709.SystemWorker
 		$worker:=This:C1470.fulgur.controller.execute($command; $stdIn ? $in : Null:C1517; $option.context).worker.worker
